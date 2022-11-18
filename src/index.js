@@ -1,13 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Main from "./pages/main";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "@fontsource/poppins";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import MUIRichTextEditor from "mui-rte";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const myTheme = createTheme({});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ThemeProvider theme={myTheme}>
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
