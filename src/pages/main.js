@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Input from "@mui/material/Input";
 import { TextField, Autocomplete } from "@mui/material";
 // import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import MUIRichTextEditor from "mui-rte";
-import InvertColorsIcon from "@mui/icons-material/InvertColors";
+// import MUIRichTextEditor from "mui-rte";
+// import InvertColorsIcon from "@mui/icons-material/InvertColors";
 import MultiSelect from "../components/MultiSelect";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -14,12 +14,11 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 
-
 // import logo from "../assets/note.png";
 
 const Main = () => {
   const [newDate, setNewDate] = useState(new Date());
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const [dateValue, setDateValue] = useState(dayjs("2014-08-18T21:11:54"));
   const [flag, setFlag] = useState(false);
 
@@ -48,10 +47,10 @@ const Main = () => {
   //   console.log(e.getCurrentContent().getPlainText());
   // }
 
-  const handleSave = (e) => {
-    console.log(e);
-    setValue("");
-  };
+  // const handleSave = (e) => {
+  //   console.log(e);
+  //   // setValue("");
+  // };
 
   const handleChangeDate = (newValue) => {
     setDateValue(newValue);
@@ -157,7 +156,7 @@ const Main = () => {
           <MultiSelect />
         </div>
         <div className="w-[100%]">
-          <MUIRichTextEditor
+          {/* <MUIRichTextEditor
             label="Start typing..."
             value={value}
             onSave={handleSave}
@@ -172,7 +171,7 @@ const Main = () => {
                 },
               },
             ]}
-          />
+          /> */}
           <Button
             variant="contained"
             size="medium"
