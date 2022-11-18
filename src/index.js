@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Main from "./pages/main";
+import Project from "./pages/project";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "@fontsource/poppins";
@@ -16,6 +17,7 @@ root.render(
       <ThemeProvider theme={myTheme}>
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/project" element={<Project />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

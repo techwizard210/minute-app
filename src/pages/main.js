@@ -49,7 +49,7 @@ const Main = () => {
 
   // const handleSave = (e) => {
   //   console.log(e);
-  //   // setValue("");
+  //   setValue("");
   // };
 
   const handleChangeDate = (newValue) => {
@@ -70,8 +70,6 @@ const Main = () => {
           {JSON.stringify(newDate.getDate())}
         </span>
         <div className="text-center">
-          {/* <span className="text-[40px] font-serif opacity-20">Title</span> */}
-          {/* <Input placeholder="" /> */}
           <Input placeholder="Title" />
         </div>
         <div className="flex mt-[20px] items-center gap-3">
