@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "@fontsource/poppins";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import MUIRichTextEditor from "mui-rte";
 
 const myTheme = createTheme({});
 

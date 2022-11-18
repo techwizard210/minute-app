@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "@mui/material/Input";
 import { TextField, Autocomplete } from "@mui/material";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+// import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import MUIRichTextEditor from "mui-rte";
 import InvertColorsIcon from "@mui/icons-material/InvertColors";
 import MultiSelect from "../components/MultiSelect";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 
-import logo from "../assets/note.png";
+
+// import logo from "../assets/note.png";
 
 const Main = () => {
   const [newDate, setNewDate] = useState(new Date());
@@ -43,56 +44,18 @@ const Main = () => {
     },
   ];
   const takers = ["minute taker one", "minute taker two"];
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "topic", headerName: "Topic", width: 130 },
-    { field: "content", headerName: "Content", width: 500 },
-    {
-      field: "complete",
-      headerName: "Completeness",
-      width: 90,
-    },
-    // {
-    //   field: "fullName",
-    //   headerName: "Full name",
-    //   description: "This column has a value getter and is not sortable.",
-    //   sortable: false,
-    //   width: 160,
-    //   valueGetter: (params) =>
-    //     `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-    // },
-    {
-      field: "delete",
-      headerName: "Delete",
-      width: 90,
-      renderCell: (params) => {
-        return <button onClick={() => alert("dddd")}>delete</button>;
-      },
-    },
-  ];
-
-  const rows = [
-    { id: 1, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 2, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 3, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 4, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 5, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 6, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 7, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 8, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-    { id: 9, topic: "Snow", content: "Jon", complete: 35, delete: 23 },
-  ];
-
   // const handleChange = e => {
   //   console.log(e.getCurrentContent().getPlainText());
   // }
 
   const handleSave = (e) => {
     console.log(e);
+    setValue("");
   };
 
   const handleChangeDate = (newValue) => {
     setDateValue(newValue);
+    setNewDate(newValue);
   };
 
   const handleFlag = (e) => {
@@ -210,7 +173,11 @@ const Main = () => {
               },
             ]}
           />
-          <Button variant="contained" size="medium" sx={{marginTop: "50px", float: "right"}}>
+          <Button
+            variant="contained"
+            size="medium"
+            sx={{ marginTop: "50px", float: "right" }}
+          >
             Save
           </Button>
         </div>
