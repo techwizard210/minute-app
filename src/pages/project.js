@@ -38,7 +38,7 @@ const Project = () => {
 
   return (
     <div className="flex justify-center poppin-font">
-      <div className="max-w-[1024px] w-[100%] rounded border-2 h-[900px] p-[20px]">
+      <div className="max-w-[1024px] w-[100%] rounded border-2 p-[20px]">
         {projects.map((project, index) => (
           <div key={index} className="mb-[30px]">
             <p className="text-[25px] font-serif">{project.name}</p>

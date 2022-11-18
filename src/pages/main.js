@@ -14,6 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 
+
 // import logo from "../assets/note.png";
 
 const Main = () => {
@@ -70,6 +71,8 @@ const Main = () => {
           {JSON.stringify(newDate.getDate())}
         </span>
         <div className="text-center">
+          {/* <span className="text-[40px] font-serif opacity-20">Title</span> */}
+          {/* <Input placeholder="" /> */}
           <Input placeholder="Title" />
         </div>
         <div className="flex mt-[20px] items-center gap-3">
