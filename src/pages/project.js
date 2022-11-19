@@ -18,7 +18,7 @@ const Project = () => {
       title: "MEETINGS",
       content:
         "In this context, the GSG announces that no construction activities will take place after a) submission of the building permit and b) completion of all active and planned demolition and construction preparation measures and the tenant conversions to the BVM.",
-      assignee: "Alle",
+      assignee: "GSG",
       duedate: "11/18/2022",
       status: "done",
     },
@@ -36,7 +36,7 @@ const Project = () => {
       title: "",
       content:
         "In this context, the GSG announces that no construction activities will take place after a) submission of the building permit and b) completion of all active and planned demolition and construction preparation measures and the tenant conversions to the BVM.",
-      assignee: "Alle",
+      assignee: "THA",
       duedate: "11/18/2022",
       status: "done",
     },
@@ -57,7 +57,7 @@ const Project = () => {
       title: "GENERAL",
       content:
         "The Bauherrin Jour Fixe takes place as an online video conference There are no comments on the previous BH-JF.The Bauherrin Jour Fixe takes place as an online video conference There are no comments on the previous BH-JF.The Bauherrin Jour Fixe takes place as an online video conference There are no comments on the previous BH-JF.The Bauherrin Jour Fixe takes place as an online video conference There are no comments on the previous BH-JF.",
-      assignee: "Alle",
+      assignee: "THA",
       duedate: "11/2/2022",
       status: "determination",
     },
@@ -66,7 +66,7 @@ const Project = () => {
       title: "MEETINGS",
       content:
         "In this context, the GSG announces that no construction activities will take place after a) submission of the building permit and b) completion of all active and planned demolition and construction preparation measures and the tenant conversions to the BVM.",
-      assignee: "Alle",
+      assignee: "GSG",
       duedate: "11/18/2022",
       status: "done",
     },
@@ -84,7 +84,7 @@ const Project = () => {
       title: "",
       content:
         "In this context, the GSG announces that no construction activities will take place after a) submission of the building permit and b) completion of all active and planned demolition and construction preparation measures and the tenant conversions to the BVM.",
-      assignee: "Alle",
+      assignee: "THA",
       duedate: "11/18/2022",
       status: "done",
     },
@@ -93,7 +93,7 @@ const Project = () => {
       title: "",
       content:
         "BZ, Mr. Wenzel, once again draws the GSG's attention to the effects of the complete project stop decision of September 13th, 2022 and clearly emphasizes the recommendation of a complete conclusion of the LPH5 and continuation of the essential tender LPH6.",
-      assignee: "Alle",
+      assignee: "GSG",
       duedate: "11/18/2022",
       status: "done",
     },
