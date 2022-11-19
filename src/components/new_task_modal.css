@@ -5,11 +5,12 @@
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 50%;
+  width: 90%;
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   transform: scale(0.8);
+  z-index: "99999";
 }
 
 .modal-base_after-open {

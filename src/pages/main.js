@@ -2,26 +2,16 @@ import React, { useState } from "react";
 import Input from "@mui/material/Input";
 import { TextField, Autocomplete } from "@mui/material";
 // import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import MUIRichTextEditor from "mui-rte";
-import InvertColorsIcon from "@mui/icons-material/InvertColors";
-import MultiSelect from "../components/MultiSelect";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
 // import Checkbox from "@mui/material/Checkbox";
 // import IconButton from "@mui/material/IconButton";
 // import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "@mui/material";
 import ShortCard from "../components/ShortCard";
 import NewTaskModal from "../components/NewTaskModal";
 
 // import logo from "../assets/note.png";
 
 const Main = () => {
-  const [newDate, setNewDate] = useState(new Date());
-  const [value, setValue] = useState("");
-  const [dateValue, setDateValue] = useState(dayjs("2014-08-18T21:11:54"));
+  const [newDate] = useState(new Date());
   const [createModal, setCreateModal] = useState(false);
   // const [flag, setFlag] = useState(false);
 
@@ -126,20 +116,14 @@ const Main = () => {
   //   console.log(e.getCurrentContent().getPlainText());
   // }
 
-  const handleSave = (e) => {
-    console.log(e);
-    setValue("");
-  };
-
-  const handleChangeDate = (newValue) => {
-    setDateValue(newValue);
-    setNewDate(newValue);
-  };
-
   const handleCreateTask = (e) => {
     e.preventDefault();
     setCreateModal(true);
-    console.log(createModal);
+  }
+
+  const handleCreateModalClose = e => {
+    e.preventDefault();
+    setCreateModal(false);
   }
 
   return (
@@ -201,7 +185,7 @@ const Main = () => {
             <span>Create Task</span>
           </div>
           {
-            createModal && <NewTaskModal isOpen = {createModal} onRequestClose={setCreateModal(false)}/>
+            createModal && <NewTaskModal isOpen = {createModal} onRequestClose={handleCreateModalClose}/>
           }
         </div>
         {/* {topics.map((topic, index) => (
@@ -287,46 +271,7 @@ const Main = () => {
             <p className="font-bold">OTHER</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row mt-[30px] items-center">
-          <div className="flex gap-2">
-            <Input placeholder="Topic name" />
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DesktopDatePicker
-                label="Due date"
-                inputFormat="MM/DD/YYYY"
-                value={dateValue}
-                onChange={handleChangeDate}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-          </div>
-          <MultiSelect />
-        </div>
-        <div className="w-[100%]">
-          <MUIRichTextEditor
-            label="Start typing..."
-            value={value}
-            onSave={handleSave}
-            customControls={[
-              {
-                name: "my-style",
-                icon: <InvertColorsIcon />,
-                type: "inline",
-                inlineStyle: {
-                  backgroundColor: "black",
-                  color: "white",
-                },
-              },
-            ]}
-          />
-          <Button
-            variant="contained"
-            size="medium"
-            sx={{ marginTop: "50px", float: "right" }}
-          >
-            Save
-          </Button>
-        </div>
+        
       </div>
     </div>
   );
