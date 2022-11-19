@@ -23,3 +23,11 @@ code {
 .background-image {
   background-image: url("./assets/note.png");
 }
+
+.card {
+  transition: .2s;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
