@@ -15,7 +15,7 @@ import Input from "@mui/material/Input";
 import { TextField } from "@mui/material";
 import { Autocomplete } from "@mui/material";
 
-const NewTaskModal = ({ isOpen, onRequestClose, name }) => {
+const NewTaskModal = ({ isOpen, onRequestClose, name, content }) => {
   const [value, setValue] = useState("");
   const [dateValue, setDateValue] = useState(dayjs("2014-08-18T21:11:54"));
   const categories = [
@@ -57,7 +57,7 @@ const NewTaskModal = ({ isOpen, onRequestClose, name }) => {
       ariaHideApp={false}
     >
       <div className="flex mt-[15px] justify-center font-serif text-[30px]">
-        <span>Create New Task</span>
+        <span>Edit Task</span>
       </div>
       <div className="flex flex-col md:flex-row mt-[30px] items-center">
         <div className="flex gap-2">
@@ -90,6 +90,7 @@ const NewTaskModal = ({ isOpen, onRequestClose, name }) => {
       <div className="w-[100%]">
         <MUIRichTextEditor
           label="Start typing..."
+          // defaultValue={content}
           value={value}
           onSave={handleSave}
           customControls={[
@@ -106,8 +107,13 @@ const NewTaskModal = ({ isOpen, onRequestClose, name }) => {
         />
       </div>
       <div className="flex flex-row-reverse">
-        <Button variant="contained" onClick={onRequestClose} size="medium" sx={{ marginTop: "50px" }}>
-          Create
+        <Button
+          variant="contained"
+          onClick={onRequestClose}
+          size="medium"
+          sx={{ marginTop: "50px" }}
+        >
+          Edit
         </Button>
       </div>
       {/* <button onClick={onRequestClose}>Close</button> */}

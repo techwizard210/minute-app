@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import Input from "@mui/material/Input";
-import { TextField, Autocomplete } from "@mui/material";
+// import { TextField, Autocomplete } from "@mui/material";
 // import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 // import Checkbox from "@mui/material/Checkbox";
 // import IconButton from "@mui/material/IconButton";
 // import DeleteIcon from "@mui/icons-material/Delete";
 import ShortCard from "../components/ShortCard";
 import NewTaskModal from "../components/NewTaskModal";
+import EditTaskModal from "../components/EditTaskModal";
 
 // import logo from "../assets/note.png";
 
 const Main = () => {
   const [newDate] = useState(new Date());
   const [createModal, setCreateModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [ModalContent, setModalContent] = useState("");
   // const [flag, setFlag] = useState(false);
 
   const tasks = [
@@ -111,7 +114,7 @@ const Main = () => {
     },
   ];
 
-  const takers = ["minute taker one", "minute taker two"];
+  // const takers = ["minute taker one", "minute taker two"];
   // const handleChange = e => {
   //   console.log(e.getCurrentContent().getPlainText());
   // }
@@ -119,12 +122,23 @@ const Main = () => {
   const handleCreateTask = (e) => {
     e.preventDefault();
     setCreateModal(true);
-  }
+  };
 
-  const handleCreateModalClose = e => {
+  const handleEditTask = async (e, task) => {
+    e.preventDefault();
+    await setModalContent(task.content);
+    await setEditModal(true);
+  };
+
+  const handleCreateModalClose = (e) => {
     e.preventDefault();
     setCreateModal(false);
-  }
+  };
+
+  const handleEditModalClose = (e) => {
+    e.preventDefault();
+    setEditModal(false);
+  };
 
   return (
     <div className="flex justify-center">
@@ -139,7 +153,7 @@ const Main = () => {
           {/* <Input placeholder="" /> */}
           <Input placeholder="Title" />
         </div>
-        <div className="flex mt-[20px] items-center gap-3">
+        {/* <div className="flex mt-[20px] items-center gap-3">
           <p className="text-[20px] font-serif w-[150px]">Minute Taker</p>
           <Autocomplete
             disablePortal
@@ -170,7 +184,7 @@ const Main = () => {
               />
             )}
           />
-        </div>
+        </div> */}
         {/* <div className="h-[400px] w-[100%] mt-[30px]">
           <DataGrid
             rows={rows}
@@ -180,13 +194,26 @@ const Main = () => {
             // checkboxSelection
           />
         </div> */}
-        <div className="flex justify-center font-serif text-[30px] mb-[20px]">
-          <div className="rounded-lg border-dashed border-2 px-[10px] hover: cursor-pointer transition delay-100 hover:scale-115 hover:bg-blue-900 hover:text-white hover:border-none" onClick={handleCreateTask}>
+        <div className="flex justify-center font-serif text-[30px] mb-[20px] mt-[30px]">
+          <div
+            className="rounded-lg border-dashed border-2 px-[10px] hover: cursor-pointer hover:bg-blue-900 hover:text-white hover:border-blue-900"
+            onClick={handleCreateTask}
+          >
             <span>Create Task</span>
           </div>
-          {
-            createModal && <NewTaskModal isOpen = {createModal} onRequestClose={handleCreateModalClose}/>
-          }
+          {createModal && (
+            <NewTaskModal
+              isOpen={createModal}
+              onRequestClose={handleCreateModalClose}
+            />
+          )}
+          {editModal && (
+            <EditTaskModal
+              isOpen={editModal}
+              content={ModalContent}
+              onRequestClose={handleEditModalClose}
+            />
+          )}
         </div>
         {/* {topics.map((topic, index) => (
           <div
@@ -214,15 +241,16 @@ const Main = () => {
             <p className="font-bold">GENERAL / ORGANIZATION</p>
           </div>
           {tasks.map((task, index) => (
-            <ShortCard
-              no={task.no}
-              title={task.title}
-              content={task.content}
-              assignee={task.assignee}
-              duedate={task.duedate}
-              status={task.status}
-              key={index}
-            />
+            <div key={index} onClick={(e) => handleEditTask(e, task)}>
+              <ShortCard
+                no={task.no}
+                title={task.title}
+                content={task.content}
+                assignee={task.assignee}
+                duedate={task.duedate}
+                status={task.status}
+              />
+            </div>
           ))}
         </div>
         <div className="mb-[20px]">
@@ -230,15 +258,17 @@ const Main = () => {
             <p className="font-bold">PLANNING</p>
           </div>
           {tasksTwo.map((task, index) => (
-            <ShortCard
-              no={task.no}
-              title={task.title}
-              content={task.content}
-              assignee={task.assignee}
-              duedate={task.duedate}
-              status={task.status}
-              key={index}
-            />
+            <div onClick={handleEditTask} key={index}>
+              <ShortCard
+                no={task.no}
+                title={task.title}
+                content={task.content}
+                assignee={task.assignee}
+                duedate={task.duedate}
+                status={task.status}
+                key={index}
+              />
+            </div>
           ))}
         </div>
         <div className="mb-[20px]">
@@ -271,7 +301,6 @@ const Main = () => {
             <p className="font-bold">OTHER</p>
           </div>
         </div>
-        
       </div>
     </div>
   );
