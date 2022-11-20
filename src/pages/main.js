@@ -8,7 +8,12 @@ import Input from "@mui/material/Input";
 import ShortCard from "../components/ShortCard";
 import NewTaskModal from "../components/NewTaskModal";
 import EditTaskModal from "../components/EditTaskModal";
+import MuiAlert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 // import logo from "../assets/note.png";
 
 const Main = () => {
@@ -119,6 +124,20 @@ const Main = () => {
   //   console.log(e.getCurrentContent().getPlainText());
   // }
 
+  const [open, setOpen] = useState(false);
+
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   const handleCreateTask = (e) => {
     e.preventDefault();
     setCreateModal(true);
@@ -132,6 +151,7 @@ const Main = () => {
 
   const handleCreateModalClose = (e) => {
     e.preventDefault();
+    setOpen(true);
     setCreateModal(false);
   };
 
@@ -214,6 +234,15 @@ const Main = () => {
               onRequestClose={handleEditModalClose}
             />
           )}
+          <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity="success"
+              sx={{ width: "100%" }}
+            >
+              New task created successfully!
+            </Alert>
+          </Snackbar>
         </div>
         {/* {topics.map((topic, index) => (
           <div

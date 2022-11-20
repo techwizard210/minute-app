@@ -106,7 +106,12 @@ const NewTaskModal = ({ isOpen, onRequestClose, name }) => {
         />
       </div>
       <div className="flex flex-row-reverse">
-        <Button variant="contained" onClick={onRequestClose} size="medium" sx={{ marginTop: "50px" }}>
+        <Button
+          variant="contained"
+          onClick={onRequestClose}
+          size="medium"
+          sx={{ marginTop: "50px" }}
+        >
           Create
         </Button>
       </div>
