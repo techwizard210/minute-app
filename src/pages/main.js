@@ -227,6 +227,7 @@ const Main = () => {
               onRequestClose={handleCreateModalClose}
             />
           )}
+          
           {editModal && (
             <EditTaskModal
               isOpen={editModal}
