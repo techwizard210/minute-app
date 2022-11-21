@@ -13,10 +13,10 @@ const Card = (props) => {
           </span>
           <div className="flex gap-4 items-center">
             <span>{props.assignee}</span>
-            <div className="border-2 p-[3px] rounded-3xl border-lime-300">
+            <div className="p-[3px] rounded-3xl shadow-lg">
               <span>{props.duedate}</span>
             </div>
-            <div className="border-2 p-[3px] rounded-3xl border-indigo-400">
+            <div className="p-[3px] rounded-3xl shadow-lg">
               <span>{props.status}</span>
             </div>
           </div>

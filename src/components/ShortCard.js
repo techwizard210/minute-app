@@ -16,10 +16,10 @@ const ShortCard = (props) => {
           </span>
           <div className="flex gap-4 items-center">
             <span>{props.assignee}</span>
-            <div className="border-2 p-[3px] rounded-3xl border-lime-300">
+            <div className="py-[3px] px-[10px] rounded-3xl shadow-md">
               <span>{props.duedate}</span>
             </div>
-            <div className="border-2 p-[3px] rounded-3xl border-indigo-400">
+            <div className="py-[3px] px-[10px] rounded-3xl shadow-md">
               <span>{props.status}</span>
             </div>
             <IconButton aria-label="delete" size="small">
