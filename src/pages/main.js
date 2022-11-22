@@ -11,6 +11,11 @@ import EditTaskModal from "../components/EditTaskModal";
 import MuiAlert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
+import { db } from "../firebase";
+import { ref } from "firebase/database";
+import { useDatabaseSnapshot } from "@react-query-firebase/database";
+import { collection, addDoc } from "firebase/firestore";
+
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -21,6 +26,7 @@ const Main = () => {
   const [createModal, setCreateModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [ModalContent, setModalContent] = useState("");
+
   // const [flag, setFlag] = useState(false);
 
   const tasks = [
@@ -130,6 +136,15 @@ const Main = () => {
   //   setOpen(true);
   // };
 
+  const push = async (e) => {
+    e.preventDefault();
+    console.log("push btn clicked");
+    const docRef = await addDoc(collection(db, "Tasks"), {
+    name: "task from firebase react"
+    });
+    console.log(docRef.id);
+  };
+
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -161,8 +176,8 @@ const Main = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="max-w-[1024px] w-[100%] p-[20px]">
+    <div className="flex justify-center bg-[#e8eaed]">
+      <div className="max-w-[1024px] w-[100%] p-[20px] shadow-md bg-[#f1f3f4]">
         <span className="text-[15px] poppin-font">
           {JSON.stringify(newDate.getFullYear())}/
           {JSON.stringify(newDate.getMonth())}/
@@ -217,7 +232,8 @@ const Main = () => {
         <div className="flex justify-center font-serif text-[30px] mb-[20px] mt-[30px]">
           <div
             className="rounded-lg border-dashed border-2 px-[10px] hover: cursor-pointer hover:bg-blue-900 hover:text-white hover:border-blue-900"
-            onClick={handleCreateTask}
+            onClick={push}
+            // onClick={handleCreateTask}
           >
             <span>Create Task</span>
           </div>
@@ -227,7 +243,7 @@ const Main = () => {
               onRequestClose={handleCreateModalClose}
             />
           )}
-          
+
           {editModal && (
             <EditTaskModal
               isOpen={editModal}

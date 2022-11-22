@@ -100,8 +100,8 @@ const Project = () => {
   ];
 
   return (
-    <div className="flex justify-center poppin-font">
-      <div className="max-w-[1024px] w-[100%] p-[20px] font-serif">
+    <div className="flex justify-center poppin-font bg-[#e8eaed]">
+      <div className="max-w-[1024px] w-[100%] p-[20px] font-serif shadow-md bg-[#f1f3f4]">
         <div className="mb-[20px]">
           <div className="bg-red-300 p-[6px] rounded">
             <p className="font-bold">1. GENERAL / ORGANIZATION</p>
